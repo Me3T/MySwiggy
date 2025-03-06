@@ -1,3 +1,5 @@
+
+
 .header{
     display: flex;
     justify-content: space-between;
@@ -41,8 +43,10 @@
     border: 1px solid black;
 }
 
-.search{
+.filter-btn{
+    margin: 10px;
     padding: 10px;
+    cursor: pointer;
 }
 
 .res-logo{
