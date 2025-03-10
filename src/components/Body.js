@@ -19,8 +19,6 @@ const Body = () => {
         </button>
       </div>
       <div className="res-container">
-        {/* <RestaurantCard resData={resObj[0]} />
-          <RestaurantCard resData={resObj[1]} /> */}
         {listofRes.map((restaurant) => (
           <RestaurantCard key={restaurant.id} resData={restaurant} />
         ))}
