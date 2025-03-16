@@ -20,7 +20,13 @@ export const resObj = [
     name: "Khatu Ji Vaishnu Dhaba",
     image: "oshmkqy9evxn4v8zaapc",
     rating: 4.6,
-    cuisines: ["North Indian", "South Indian", "Italian", "Chinese"],
+    cuisines: [
+      "North Indian",
+      "South Indian",
+      "Italian",
+      "Chinese",
+      "Fast Food",
+    ],
     time: "15-20 mins",
   },
 ];
