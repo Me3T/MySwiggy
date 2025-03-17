@@ -1,6 +1,6 @@
-import { resObj } from "../utils/mockData";
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [listofRes, setListofRes] = useState([]);
@@ -17,9 +17,11 @@ const Body = () => {
     const json = await data.json();
     console.log(json);
     setListofRes(
-      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  if (listofRes.length === 0) return <Shimmer />;
 
   return (
     <div className="body">
@@ -27,7 +29,7 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            const filterList = listofRes.filter((res) => res.rating > 4.5);
+            const filterList = listofRes.filter((res) => res.rating > 4);
             setListofRes(filterList);
           }}
         >
