@@ -66,3 +66,25 @@
     height: 400px;
     background-color: #f0f0f0;
 }
+
+.login{
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.filter{
+    display: flex;
+    
+}
+.search-box{
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    border: 1px solid black;
+}
+
+.search-button{
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+}

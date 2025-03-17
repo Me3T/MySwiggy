@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [listofRes, setListofRes] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -21,11 +22,17 @@ const Body = () => {
     );
   };
 
-  if (listofRes.length === 0) return <Shimmer />;
-
-  return (
+  return listofRes.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input type="text" className="search-box" value={searchText} />
+          <button className="search-button" onClick={() => {}}>
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
