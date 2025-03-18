@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [listofRes, setListofRes] = useState([]);
+  const [listofResCopy, setListofResCopy] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -20,6 +21,9 @@ const Body = () => {
     setListofRes(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    setListofResCopy(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   return listofRes.length === 0 ? (
@@ -28,8 +32,21 @@ const Body = () => {
     <div className="body">
       <div className="filter">
         <div className="search">
-          <input type="text" className="search-box" value={searchText} />
-          <button className="search-button" onClick={() => {}}>
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <button
+            className="search-button"
+            onClick={() => {
+              const filteredRes = listofRes.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setListofResCopy(filteredRes);
+            }}
+          >
             Search
           </button>
         </div>
@@ -44,7 +61,7 @@ const Body = () => {
         </button>
       </div>
       <div className="res-container">
-        {listofRes.map((restaurant) => (
+        {listofResCopy.map((restaurant) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant.info} />
         ))}
       </div>
