@@ -4,7 +4,7 @@ const Contact = () => {
       <h1>Contact Us</h1>
       <h2>Reach Us</h2>
       <h4>9888888</h4>
-      <h2>7</h2>
+      <h2>7888888</h2>
     </div>
   );
 };
